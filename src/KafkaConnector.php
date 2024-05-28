@@ -25,8 +25,8 @@ class KafkaConnector implements ConnectorInterface
         // agregar ca crt
         $producer = new \RdKafka\Producer($conf);
 
-        $conf->set('group.id', 'recipes-service');
-        $conf->set('auto.offset.reset', 'latest');
+        $conf->set('group.id', $config['group_id']);
+        $conf->set('auto.offset.reset', 'earliest');
 
         $consumer = new \RdKafka\KafkaConsumer($conf);
 
